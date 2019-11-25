@@ -101,6 +101,7 @@ while True:
         ball.goto(0, 0)
         ball.dx *= -1
         score_1 += 1
+        pen.clear()
         pen.write("Player 1: {}  Player 2: {}".format(score_1, score_2), align="center", font=("Courier", 24, "normal"))
 
 
@@ -108,6 +109,7 @@ while True:
         ball.goto(0, 0)
         ball.dx *= -1
         score_2 += 1
+        pen.clear()
         pen.write("Player 1: {}  Player 2: {}".format(score_1, score_2), align="center", font=("Courier", 24, "normal"))
 
 
