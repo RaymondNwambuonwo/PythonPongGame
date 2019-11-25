@@ -37,7 +37,7 @@ ball.color("pink")
 ball.penup()
 ball.goto(0, 0)
 ball.dx = 2
-ball.dy = 2
+ball.dy = -2
 
 #  Function
 def Paddle_1_up():
@@ -77,4 +77,8 @@ while True:
     # Border checking
     if ball.ycor() > 290:
         ball.sety(290)
+        ball.dy *= -1
+    
+    if ball.ycor() < -290:
+        ball.sety(-290)
         ball.dy *= -1
