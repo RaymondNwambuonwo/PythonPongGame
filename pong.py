@@ -37,6 +37,22 @@ ball.color("pink")
 ball.penup()
 ball.goto(0, 0)
 
+#  Function
+def Paddle_1_up():
+    y = Paddle_1.ycor()
+    y += 20
+    Paddle_1.sety(y)
+
+def Paddle_1_down():
+    y = Paddle_1.ycor()
+    y -= 20
+    Paddle_1.sety(y)
+
+# Keyboard binding
+wind.listen()
+wind.onkeypress(Paddle_1_up, "w")
+wind.onkeypress(Paddle_1_down, "s")
+
 # Main game loop
 while True:
     wind.update()
