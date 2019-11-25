@@ -36,6 +36,8 @@ ball.shape("square")
 ball.color("pink")
 ball.penup()
 ball.goto(0, 0)
+ball.dx = 2
+ball.dy = 2
 
 #  Function
 def Paddle_1_up():
@@ -68,3 +70,7 @@ wind.onkeypress(Paddle_2_down, "Down")
 # Main game loop
 while True:
     wind.update()
+
+    #  Move the ball
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
