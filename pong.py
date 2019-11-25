@@ -21,7 +21,13 @@ Paddle_1.goto(-350, 0)
 
 
 # Paddle 2
-
+Paddle_2 = turtle.Turtle()
+Paddle_2.speed(0)
+Paddle_2.shape("square")
+Paddle_2.color("orange")
+Paddle_2.shapesize(stretch_wid=5, stretch_len=1)
+Paddle_2.penup()
+Paddle_2.goto(350, 0)
 
 # Ball
 
