@@ -1,14 +1,14 @@
-# Pong game 
+# Pong game
 
 
 import turtle
 import os
 
 
-wind = turtle.Screen() 
+wind = turtle.Screen()
 wind.title("Pong by Raymond")
-wind.bgcolor("blue")
-wind.setup(width= 800, height=600)
+wind.bgcolor("black")
+wind.setup(width=800, height=600)
 wind.tracer(0)
 
 # Scpre
@@ -37,13 +37,13 @@ Paddle_2.goto(350, 0)
 
 # Ball
 ball = turtle.Turtle()
-ball.speed(1)
+ball.speed(0)
 ball.shape("square")
 ball.color("pink")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = 2
-ball.dy = -2
+ball.dx = 3
+ball.dy = -3
 
 # Pen
 pen = turtle.Turtle()
@@ -52,28 +52,35 @@ pen.color("white")
 pen.penup()
 pen.hideturtle()
 pen.goto(0, 260)
-pen.write("Player 1: 0  Player 2: 0", align="center", font=("Courier", 24, "normal"))
+pen.write("Player 1: 0  Player 2: 0", align="center",
+          font=("Courier", 24, "normal"))
 
 #  Function
+
+
 def Paddle_1_up():
     y = Paddle_1.ycor()
     y += 20
     Paddle_1.sety(y)
+
 
 def Paddle_1_down():
     y = Paddle_1.ycor()
     y -= 20
     Paddle_1.sety(y)
 
+
 def Paddle_2_up():
     y = Paddle_2.ycor()
     y += 20
     Paddle_2.sety(y)
 
+
 def Paddle_2_down():
     y = Paddle_2.ycor()
     y -= 20
     Paddle_2.sety(y)
+
 
 # Keyboard binding
 wind.listen()
@@ -90,13 +97,12 @@ while True:
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
 
-
     # Border checking
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
         os.system("afplay bounce.wav&")
-    
+
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
@@ -107,24 +113,24 @@ while True:
         ball.dx *= -1
         score_1 += 1
         pen.clear()
-        pen.write("Player 1: {}  Player 2: {}".format(score_1, score_2), align="center", font=("Courier", 24, "normal"))
-
+        pen.write("Player 1: {}  Player 2: {}".format(score_1, score_2),
+                  align="center", font=("Courier", 24, "normal"))
 
     if ball.xcor() < -390:
         ball.goto(0, 0)
         ball.dx *= -1
         score_2 += 1
         pen.clear()
-        pen.write("Player 1: {}  Player 2: {}".format(score_1, score_2), align="center", font=("Courier", 24, "normal"))
-
+        pen.write("Player 1: {}  Player 2: {}".format(score_1, score_2),
+                  align="center", font=("Courier", 24, "normal"))
 
     # Paddle and ball collisions
-    if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < Paddle_2.ycor() + 40 and ball.ycor() > Paddle_2.ycor() -40):
+    if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < Paddle_2.ycor() + 40 and ball.ycor() > Paddle_2.ycor() - 40):
         ball.setx(340)
         ball.dx *= -1
         os.system("afplay bounce.wav&")
 
-    if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < Paddle_1.ycor() + 40 and ball.ycor() > Paddle_1.ycor() -40):
+    if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < Paddle_1.ycor() + 40 and ball.ycor() > Paddle_1.ycor() - 40):
         ball.setx(-340)
         ball.dx *= -1
         os.system("afplay bounce.wav&")
